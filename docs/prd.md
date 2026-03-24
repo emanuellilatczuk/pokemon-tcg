@@ -2,9 +2,9 @@
 
 ## 1. Visão Geral e Objetivo
 
-O **PokéDeck Builder** é uma aplicação web didática que utiliza a API pública de Pokémon TCG para permitir a exploração de cartas colecionáveis e a simulação de montagem de decks personalizados.
+O **PokéDeck Builder** é uma aplicação web que utiliza a API pública de Pokémon TCG para permitir a exploração de cartas colecionáveis e a simulação de montagem de decks personalizados.
 
-**O grande diferencial (Regra de Negócio Principal):** Diferente de uma enciclopédia estática, o sistema foca na **experiência de gerenciamento**. O usuário pode buscar cartas em tempo real e "capturá-las" para o seu deck digital. O sistema utiliza persistência de dados (via JSON Server ou Web Storage) para garantir que a coleção do treinador seja mantida entre as sessões, simulando um ambiente real de coleção.
+**O grande diferencial:** Diferente de uma enciclopédia estática, o sistema foca na **experiência de gerenciamento**. O usuário pode buscar cartas em tempo real e "capturá-las" para o seu deck digital. O sistema utiliza persistência de dados (via JSON Server ou Web Storage) para garantir que a coleção do treinador seja mantida entre as sessões, simulando um ambiente real de coleção.
 
 ## 2. Atores do Sistema
 
