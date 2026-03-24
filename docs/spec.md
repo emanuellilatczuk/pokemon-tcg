@@ -43,7 +43,7 @@ Breve explicação das tabelas que compõem o banco de dados dinâmico (`db.json
     * **senha:** String para validação de acesso ao painel privado.
 * **Decks:** Define as coleções ou agrupamentos de cartas criados pelo treinador.
     * **id:** Identificador único do deck gerado pelo JSON Server.
-    * **treinadorId:** Chave estrangeira (FK) que vincula o deck ao seu dono. **Regra de Negócio:** Um deck só pode ser visualizado ou editado pelo treinador que o criou.
+    * **treinadorId:** Chave estrangeira (FK) que vincula o deck ao seu dono. **Regra de Negócio:** Um deck só pode ser editado pelo treinador que o criou.
     * **nome_deck:** Título personalizado dado pelo usuário (ex: "Estratégia Fogo", "Favoritos").
 * **Deck_Cards:** Registra cada instância de carta salva dentro de um deck específico. Os dados aqui são oriundos da API Pública.
     * **id:** Identificador único do item no banco local.
