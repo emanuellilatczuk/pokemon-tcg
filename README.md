@@ -13,16 +13,15 @@ Para entender as regras de negócio, o escopo e a arquitetura técnica da aplica
 
 ## 🎨 Design
 
-* [🎨 Design System](https://link-do-seu-figma) - Identidade visual
-* [🖼️ Protótipo no Figma](https://link-do-seu-figma) - Telas interativas da aplicação.
+* Em andamento
 
 ## 🌐 Site em Produção - GitHub Pages
 
-https://emanuellilatczuk.github.io/pokemon-tcg-web/
+* Em andamento
 
 ## 💻 Tecnologias e Dependências
 
-**Framework CSS:** [Inserir ex: Bootstrap, Tailwind ou Materialize]
+**Framework CSS:** Bootstrap
 **JavaScript:**
 * **JQuery** - Para realizar animações, manipulação do DOM e requisições AJAX.
 * **JSON Server** - Para simular uma API REST de usuários e decks.
@@ -65,15 +64,8 @@ https://emanuellilatczuk.github.io/pokemon-tcg-web/
 
 ## 🚀 Manual de execução
 
-1. Clonar o repositório com `git clone`
-2. Abrir o projeto no editor Visual Studio Code (VS Code)
-3. Abrir um terminal pelo VSCode ou qualquer terminal do seu Sistema Operacional apontando para o diretório raiz do projeto
-4. Instalar as dependências contidas no `package.json`
-   * Comando: `npm i`
-5. Executar a API Fake (JSON Server) via script registrado no `package.json`:
-   * Comando: `npm run json:server`
-6. Executar o projeto frontend.
+* Em andamento 
 
 ## 📱 Telas da aplicação
 
-*(Imagens das telas serão incluídas aqui conforme o desenvolvimento)*
+* Em andamento 
