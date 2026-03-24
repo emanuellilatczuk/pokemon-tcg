@@ -1,6 +1,6 @@
 # PokéDeck Builder
 
-**Autor:** Emanuelli Latczuk
+**Autor:** Emanuelli Fiuza Latczuk
 
 Este projeto tem como objetivo implementar progressivamente e de forma didática uma aplicação web inspirada no gerenciamento de cartas colecionáveis de Pokémon TCG. O sistema permite buscar cartas em tempo real, visualizar detalhes técnicos e simular a montagem de decks personalizados.
 O frontend da aplicação foi desenvolvido com HTML, CSS e JavaScript e o backend foi simulado pela implementação de uma API Fake (JSON Server) e consumo da API pública Pokémon TCG API.
