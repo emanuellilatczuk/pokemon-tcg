@@ -29,12 +29,15 @@ Abaixo estão as funcionalidades principais do MVP (Minimum Viable Product), org
 - **US05 - Filtros por Tipo:** Como um usuário, quero filtrar as cartas por tipo (ex: Fogo, Água, Psíquico) para facilitar a montagem de decks temáticos.
   - *Critérios de Aceitação:* Os filtros devem disparar novas requisições à API oficial.
 
-### 🗃️ Épico 3: Gerenciamento da Coleção (Deck)
+### 🗃️ Épico 3: Gerenciamento de Múltiplos Decks e Coleções (CRUD)
 
-- **US06 - Adicionar ao Deck:** Como um Treinador logado, quero clicar em um botão nas cartas do catálogo para adicioná-las à minha coleção pessoal.
-  - *Critérios de Aceitação:* O sistema deve registrar a data da adição e vincular a carta ao ID do treinador logado no `db.json`.
-- **US07 - Visualizar Meu Deck:** Como um Treinador, quero uma tela exclusiva que exiba apenas as cartas que eu selecionei, funcionando como um "extrato" da minha coleção.
-- **US08 - Remover da Coleção:** Como um Treinador, quero poder remover uma carta do meu deck caso decida mudar minha estratégia.
-  - *Critérios de Aceitação:* A remoção deve refletir instantaneamente na interface e ser atualizada no banco de dados fake.
+- **US06 - Criar Novo Deck (Create):** Como um Treinador logado, quero criar diferentes decks com nomes personalizados (ex: "Deck de Fogo", "Meu Deck para Torneio") para organizar minhas estratégias.
+  - *Critérios de Aceitação:* O deck deve estar vinculado ao ID do treinador; o nome é obrigatório.
+- **US07 - Visualizar Meus Decks (Read):** Como um Treinador, quero uma tela de dashboard que liste todos os decks que eu criei.
+- **US08 - Editar Nome do Deck (Update):** Como um Treinador, quero poder alterar o nome de um deck já existente.
+- **US09 - Excluir Deck (Delete):** Como um Treinador, quero poder excluir um deck completo.
+  - *Critérios de Aceitação:* Ao excluir um deck, o sistema deve remover o vínculo de todas as cartas pertencentes a ele.
+- **US10 - Gerenciar Cartas no Deck:** Como um Treinador, quero poder adicionar cartas do catálogo a um deck específico e removê-las quando desejar.
+  - *Critérios de Aceitação:* Ao clicar em "Adicionar", o sistema deve permitir escolher em qual deck a carta será salva.
 
 ---
