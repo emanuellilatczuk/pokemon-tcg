@@ -19,9 +19,14 @@ erDiagram
 
     DECK {
         string id PK "Gerado automaticamente"
-        string treinadorId FK "Vínculo com o Treinador"
-        string pokemonId "ID da carta na API (ex: lp1-1)"
-        string nomePokemon "Nome da carta"
-        string imageUrl "Link da imagem da carta"
-        string dataAdicao "Formato ISO (YYYY-MM-DD)"
+        string treinadorId FK "Dono do deck"
+        string nome_deck "Ex: Estratégia Fogo"
+    }
+
+    DECK_CARDS {
+        string id PK
+        string deckId FK "Vínculo com o Deck específico"
+        string pokemonId "ID da API (ex: lp1-1)"
+        string nomePokemon
+        string imageUrl
     }
