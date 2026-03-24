@@ -1,4 +1,4 @@
-# 🛠️ Especificação Técnica (Tech Spec) - PokeTcg Studio
+# 🛠️ Especificação Técnica (Tech Spec) - PokeDeck Studio
 
 Este documento descreve o modelo de dados da aplicação necessários para o funcionamento do ecossistema PokeTcg Studio.
 
