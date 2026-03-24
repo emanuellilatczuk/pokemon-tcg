@@ -1,4 +1,4 @@
-# PokeTCG Studio
+# PokeDeck Studio
 
 **Autor:** Emanuelli Fiuza Latczuk
 
