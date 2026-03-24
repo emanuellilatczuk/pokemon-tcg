@@ -1,4 +1,4 @@
-# 📄 Product Requirements Document (PRD) - PokeTcg Studio
+# 📄 Product Requirements Document (PRD) - PokeDeck Studio
 
 ## 1. Visão Geral e Objetivo
 
