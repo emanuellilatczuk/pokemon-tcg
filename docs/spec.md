@@ -31,7 +31,7 @@ erDiagram
         string nomePokemon "Nome vindo da API"
         string imageUrl "URL da imagem vinda da API"
     }
-
+```
 ## 2. Dicionário de Dados
 
 Breve explicação das tabelas que compõem o banco de dados dinâmico (`db.json`):
