@@ -1,6 +1,6 @@
-# 🛠️ Especificação Técnica (Tech Spec) - PokéDeck Builder
+# 🛠️ Especificação Técnica (Tech Spec) - PokeTcg Studio
 
-Este documento descreve o modelo de dados da aplicação necessários para o funcionamento do ecossistema PokéDeck Builder.
+Este documento descreve o modelo de dados da aplicação necessários para o funcionamento do ecossistema PokeTcg Studio.
 
 ## 1. Modelo de Dados (Diagrama ER)
 
