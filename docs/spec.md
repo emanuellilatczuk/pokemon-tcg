@@ -27,7 +27,7 @@ erDiagram
     DECK_CARDS {
         string id PK "ID do item"
         string deckId FK "A qual deck pertence"
-        string pokemonId "ID da API (ex: swsh1-1)"
+        string pokemonId "ID da API"
         string nomePokemon
         string imageUrl
     }
