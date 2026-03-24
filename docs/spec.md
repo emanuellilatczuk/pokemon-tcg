@@ -27,7 +27,7 @@ erDiagram
     DECK_CARDS {
         string id PK "ID do item no banco local"
         string deck_id FK "A qual deck pertence"
-        string card_id "ID oficial da API (ex: swsh1-1)"
+        string card_id "ID oficial da API"
         string card_name "Nome vindo da API"
         string image_url "URL da imagem vinda da API"
     }
