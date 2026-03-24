@@ -29,15 +29,14 @@ Abaixo estão as funcionalidades principais do MVP (Minimum Viable Product), org
 - **US05 - Filtros por Tipo:** Como um usuário, quero filtrar as cartas por tipo (ex: Fogo, Água, Psíquico) para facilitar a montagem de decks temáticos.
   - *Critérios de Aceitação:* Os filtros devem disparar novas requisições à API oficial.
 
-### 🗃️ Épico 3: Gerenciamento de Múltiplos Decks e Coleções (CRUD)
+### 🗃️ Épico 3: Gerenciamento de Múltiplos Decks e Coleções 
 
-- **US06 - Criar Novo Deck (Create):** Como um Treinador logado, quero criar diferentes decks com nomes personalizados (ex: "Deck de Fogo", "Meu Deck para Torneio") para organizar minhas estratégias.
+- **US06 - Criar Novo Deck:** Como um Treinador logado, quero criar diferentes decks com nomes personalizados (ex: "Deck de Fogo", "Meu Deck para Torneio") para organizar minhas estratégias.
   - *Critérios de Aceitação:* O deck deve estar vinculado ao ID do treinador; o nome é obrigatório.
-- **US07 - Visualizar Meus Decks (Read):** Como um Treinador, quero uma tela de dashboard que liste todos os decks que eu criei.
-- **US08 - Editar Nome do Deck (Update):** Como um Treinador, quero poder alterar o nome de um deck já existente.
-- **US09 - Excluir Deck (Delete):** Como um Treinador, quero poder excluir um deck completo.
+- **US07 - Visualizar Meus Decks:** Como um Treinador, quero uma tela de dashboard que liste todos os decks que eu criei.
+- **US08 - Editar Nome do Deck:** Como um Treinador, quero poder alterar o nome de um deck já existente.
+- **US09 - Excluir Deck:** Como um Treinador, quero poder excluir um deck completo.
   - *Critérios de Aceitação:* Ao excluir um deck, o sistema deve remover o vínculo de todas as cartas pertencentes a ele.
 - **US10 - Gerenciar Cartas no Deck:** Como um Treinador, quero poder adicionar cartas do catálogo a um deck específico e removê-las quando desejar.
-  - *Critérios de Aceitação:* Ao clicar em "Adicionar", o sistema deve permitir escolher em qual deck a carta será salva.
 
 ---
