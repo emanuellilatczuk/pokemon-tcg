@@ -24,7 +24,7 @@ Abaixo estão as funcionalidades principais do MVP (Minimum Viable Product), org
 
 ### 🃏 Épico 2: Exploração e Descoberta
 
-- **US03 - Visualização do Catálogo:** Como um usuário, quero visualizar uma grade (grid) de cartas Pokémon carregadas dinamicamente da API.
+- **US03 - Visualização do Catálogo:** Como um usuário, quero visualizar uma grade de cartas Pokémon carregadas dinamicamente da API.
 - **US04 - Busca por Nome:** Como um usuário, quero digitar o nome de um Pokémon em um campo de busca para encontrar cartas específicas rapidamente.
 - **US05 - Filtros por Tipo:** Como um usuário, quero filtrar as cartas por tipo (ex: Fogo, Água, Psíquico) para facilitar a montagem de decks temáticos.
   - *Critérios de Aceitação:* Os filtros devem disparar novas requisições à API oficial.
