@@ -48,6 +48,6 @@ Breve explicação das tabelas que compõem o banco de dados dinâmico (`db.json
 * **Deck_Cards:** Registra cada instância de carta salva dentro de um deck específico. Os dados aqui são oriundos da API Pública.
     * **id:** Identificador único do item no banco local.
     * **deck_id:** Chave estrangeira (FK) que vincula a carta ao deck correspondente.
-    * **card_id:** O ID oficial da carta vindo da Pokémon TCG API (ex: `swsh1-1`). Serve como referência para consultas detalhadas na API externa.
+    * **card_id:** O ID oficial da carta vindo da Pokémon TCG API. Serve como referência para consultas detalhadas na API externa.
     * **card_name:** Cópia do nome da carta (armazenado localmente como cache para exibição rápida na listagem).
     * **image_url:** URL da imagem da carta vinda da API pública, persistida localmente para otimizar o carregamento da galeria do usuário.
