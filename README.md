@@ -3,7 +3,7 @@
 **Autor:** Emanuelli Fiuza Latczuk
 
 Este projeto tem como objetivo implementar progressivamente e de forma didática uma aplicação web inspirada no gerenciamento de cartas colecionáveis de Pokémon TCG. O sistema permite buscar cartas, visualizar detalhes técnicos e simular a montagem de decks personalizados.
-O frontend da aplicação vai ser desenvolvido com HTML, CSS e JavaScript e o backend foi simulado pela implementação de uma API Fake (JSON Server) e consumo da API pública Pokémon TCG API.
+O frontend da aplicação vai ser desenvolvido com HTML, CSS e JavaScript e o backend é simulado pela implementação de uma API Fake (JSON Server), além do consumo da API pública oficial [Pokémon TCG API](https://pokemontcg.io/).
 
 ## 📚 Documentação do Projeto
 
