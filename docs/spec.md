@@ -8,25 +8,26 @@ Abaixo está o Diagrama Entidade-Relacionamento (DER) que representa a estrutura
 
 ```mermaid
 erDiagram
-    TREINADOR ||--o{ DECK : "gerencia"
+    TREINADOR ||--o{ DECK : "possui"
+    DECK ||--o{ DECK_CARDS : "contém"
     
     TREINADOR {
-        string id PK "Gerado automaticamente"
+        string id PK "ID único"
         string nome
-        string email "Usado para o login"
+        string email "Login"
         string senha
     }
 
     DECK {
-        string id PK "Gerado automaticamente"
+        string id PK "ID do Deck"
         string treinadorId FK "Dono do deck"
-        string nome_deck "Ex: Estratégia Fogo"
+        string nome_deck "Ex: Meus Favoritos"
     }
 
     DECK_CARDS {
-        string id PK
-        string deckId FK "Vínculo com o Deck específico"
-        string pokemonId "ID da API (ex: lp1-1)"
+        string id PK "ID do item"
+        string deckId FK "A qual deck pertence"
+        string pokemonId "ID da API (ex: swsh1-1)"
         string nomePokemon
         string imageUrl
     }
