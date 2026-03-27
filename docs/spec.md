@@ -4,7 +4,7 @@ Este documento descreve o modelo de dados da aplicação necessários para o fun
 
 ## 1. Modelo de Dados (Diagrama ER)
 
-Abaixo está o Diagrama Entidade-Relacionamento (DER) que representa a estrutura do nosso "banco de dados" (`db.json`) e como as informações se conectam.
+Abaixo está o Diagrama Entidade-Relacionamento (DER) que representa a estrutura do "banco de dados" (`db.json`) e como as informações se conectam.
 
 ```mermaid
 erDiagram
@@ -34,7 +34,7 @@ erDiagram
 ```
 ## 2. Dicionário de Dados
 
-Breve explicação das tabelas que compõem o banco de dados dinâmico (`db.json`):
+Breve explicação das tabelas que compõem o banco de dados:
 
 * **Trainers::** Armazena as informações de perfil e credenciais de acesso para autenticação.
     * **id:** Identificador único gerado automaticamente pelo JSON Server (String ou Hash).
