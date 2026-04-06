@@ -22,7 +22,9 @@ Para entender as regras de negócio, o escopo e a arquitetura técnica da aplica
 ## 💻 Tecnologias e Dependências
 
 **Framework CSS:** Bootstrap
+
 **Api pública:** [Pokémon TCG API](https://pokemontcg.io/).
+
 **JavaScript:**
 * **JQuery** - Para realizar animações, manipulação do DOM e requisições AJAX.
 * **JSON Server** - Para simular uma API REST de usuários e decks.
