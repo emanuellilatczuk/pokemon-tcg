@@ -57,7 +57,7 @@ Breve explicação das tabelas que compõem o banco de dados:
 
     - Tecnologia: Bootstrap
     
-    - Versão: v5.3.3
+    - Versão: v5.3.8
     
     - Método de Implementação: Via CDN (ou via NPM, se estiver usando Node.js)
 
