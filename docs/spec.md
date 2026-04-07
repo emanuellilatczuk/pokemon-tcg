@@ -51,3 +51,15 @@ Breve explicação das tabelas que compõem o banco de dados:
     * **card_id:** O ID oficial da carta vindo da Pokémon TCG API. Serve como referência para consultas detalhadas na API externa.
     * **card_name:** Cópia do nome da carta (armazenado localmente como cache para exibição rápida na listagem).
     * **image_url:** URL da imagem da carta vinda da API pública, persistida localmente para otimizar o carregamento da galeria do usuário.
+ 
+## 3. Especificação Técnica
+**Framework de Estilização**
+    * Tecnologia: Bootstrap
+    * Versão: v5.3.3
+    * Método de Implementação: Via CDN (ou via NPM, se estiver usando Node.js)
+
+**Fonte de Dados (API)**
+    * API: Pokémon TCG API
+    * Versão da API: v2 
+    * Endpoint Base: https://api.pokemontcg.io/v2/
+    * Estrutura de Dados: JSON estruturado.
