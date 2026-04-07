@@ -55,11 +55,16 @@ Breve explicação das tabelas que compõem o banco de dados:
 ## 3. Especificação Técnica
 **Framework de Estilização**
     * Tecnologia: Bootstrap
+    
     * Versão: v5.3.3
+    
     * Método de Implementação: Via CDN (ou via NPM, se estiver usando Node.js)
 
 **Fonte de Dados (API)**
     * API: Pokémon TCG API
+    
     * Versão da API: v2 
+    
     * Endpoint Base: https://api.pokemontcg.io/v2/
+    
     * Estrutura de Dados: JSON estruturado.
