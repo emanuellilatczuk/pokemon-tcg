@@ -29,6 +29,8 @@ Para entender as regras de negócio, o escopo e a arquitetura técnica da aplica
 * **JQuery** - Para realizar animações, manipulação do DOM e requisições AJAX.
 * **JSON Server** - Para simular uma API REST de usuários e decks.
 
+A escolha do Bootstrap tem como base a sua robustez e vasta biblioteca de componentes prontos. A Pokémon TCG API foi selecionada por oferecer dados estruturados e imagens de alta qualidade, permitindo a criação de uma interface dinâmica e visualmente rica para o usuário, além de possuir um banco de dados completo.
+
 ## ✅ Checklist | Indicadores de Desempenho (ID) dos Resultados de Aprendizagem (RA)
 
 ### RA1 - Utilizar Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos.
