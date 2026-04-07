@@ -36,7 +36,7 @@ erDiagram
 
 Breve explicação das tabelas que compõem o banco de dados:
 
-* **Trainers::** Armazena as informações de perfil e credenciais de acesso para autenticação.
+* **Trainers:** Armazena as informações de perfil e credenciais de acesso para autenticação.
     * **id:** Identificador único gerado automaticamente pelo JSON Server (String ou Hash).
     * **name:** Nome completo do treinador.
     * **email:** Chave de acesso única, utilizada para realizar o Login e identificar o usuário.
