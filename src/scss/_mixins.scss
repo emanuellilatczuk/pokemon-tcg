@@ -1,0 +1,63 @@
+@mixin fluid-type($min-size, $max-size, $min-vw: 320px, $max-vw: 1200px) {
+    $min-rem: calc($min-size / 16px) * 1rem;
+    $max-rem: calc($max-size / 16px) * 1rem;
+
+    $factor: calc(1 / ($max-vw - $min-vw)) * ($max-size - $min-size);
+    $vw-value: calc($factor * 100) * 1vw;
+    $base-rem: calc(($min-size - ($factor * $min-vw)) / 16px) * 1rem;
+
+    font-size: clamp(#{$min-rem}, #{$base-rem} + #{$vw-value}, #{$max-rem});
+}
+
+@mixin holo-effect {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+            115deg,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(255, 255, 255, 0.5) 45%,
+            rgba(255, 255, 255, 0.1) 60%,
+            transparent 70%
+        );
+        transition: 0.8s ease;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    &:hover {
+        transform: translateY(-8px) scale(1.03) rotateY(5deg) rotateX(-5deg);
+        box-shadow:
+            0 15px 35px rgba(0, 0, 0, 0.15),
+            0 5px 15px rgba($pokedeck-btn-brown, 0.1);
+
+        &::before {
+            left: 150%;
+        }
+    }
+}
+
+@mixin glass-panel($bg-opacity: 0.15, $blur: 8px) {
+    background: rgba($pokedeck-green-bg, $bg-opacity);
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+@mixin soft-shadow($opacity: 0.08) {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, $opacity);
+}

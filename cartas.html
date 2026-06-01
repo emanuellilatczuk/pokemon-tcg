@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PokeDeck Studio - Buscar Cartas</title>
+
+        <link rel="stylesheet" href="src/css/main.css" />
+    </head>
+    <body>
+        <header class="container py-3 d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3">
+                <a
+                    href="index.html"
+                    class="d-flex align-items-center justify-content-center bg-danger bg-opacity-10 rounded-circle text-danger"
+                    style="width: 38px; height: 38px"
+                    title="Voltar para a Home"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-left"
+                    >
+                        <line x1="19" y1="12" x2="5" y2="12" />
+                        <polyline points="12 19 5 12 12 5" />
+                    </svg>
+                </a>
+                <h1 class="h3 fw-bold mb-0" style="color: #9d4e54; font-family: &quot;Outfit&quot;, sans-serif">
+                    PokeDeck Studio
+                </h1>
+            </div>
+
+            <nav class="capsule-navbar d-none d-md-inline-flex">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link active" href="cartas.html">Cartas</a>
+                <a class="nav-link" href="decks.html">Decks</a>
+            </nav>
+
+            <div class="dropdown">
+                <a
+                    href="#"
+                    class="d-flex align-items-center justify-content-center text-muted border border-2 rounded-circle"
+                    style="width: 42px; height: 42px; border-color: #7a8f75 !important"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    title="Área do Treinador"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#7a8f75"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-user"
+                    >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </a>
+                <ul
+                    class="dropdown-menu dropdown-menu-end shadow border-0 p-2"
+                    style="background-color: #ffffff; border-radius: 1rem; min-width: 120px"
+                >
+                    <li>
+                        <a
+                            class="dropdown-item fw-bold py-2 text-danger btn-logout-trigger"
+                            href="login.html"
+                            style="border-radius: 0.75rem"
+                        >
+                            Sair
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="container py-3 mb-5 pb-5">
+            <section class="custom-card border-0 p-4 fade-in" style="background-color: #b6c9b1; border-radius: 2rem">
+                <div class="mb-4">
+                    <h2 class="fw-bold h3" style="color: #532626; font-family: &quot;Outfit&quot;">Buscar Cartas</h2>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-12">
+                        <div class="position-relative">
+                            <input
+                                type="text"
+                                class="form-control form-control-custom w-100 py-3 pe-5"
+                                placeholder="Encontre um amigo mágico..."
+                            />
+                            <span class="position-absolute end-0 top-50 translate-middle-y me-4 text-muted">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-search"
+                                >
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="row g-2">
+                            <div class="col-6 col-sm-3">
+                                <select class="filter-select form-select text-muted small fw-semibold">
+                                    <option selected>Tipos</option>
+                                    <option>Elétrico</option>
+                                    <option>Fogo</option>
+                                    <option>Água</option>
+                                    <option>Planta</option>
+                                </select>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <select class="filter-select form-select text-muted small fw-semibold">
+                                    <option selected>Raridade</option>
+                                    <option>Comum</option>
+                                    <option>Raro Holo</option>
+                                    <option>Raro Ultra</option>
+                                    <option>Secreto</option>
+                                </select>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <button class="filter-btn" data-bs-toggle="modal" data-bs-target="#favoritesModal">
+                                    <span class="text-warning">★</span> Favoritos
+                                </button>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <button
+                                    id="btn-filter-collection"
+                                    class="filter-btn"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#collectionModal"
+                                >
+                                    📂 Minha Coleção
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pokedeck-grid-pure px-1 py-2">
+                    <div
+                        class="pokemon-card"
+                        data-bs-toggle="modal"
+                        data-bs-target="#pokemonDetailsModal"
+                        data-name="Pikachu"
+                        data-type="electric"
+                        data-rarity="Rare"
+                        data-desc="Quando vários destes Pokémon se juntam, sua eletricidade pode causar tempestades."
+                        data-img="src/assets/img/pikachu.webp"
+                    >
+                        <div class="favorite-star">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-muted"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="image-container">
+                            <img src="src/assets/img/pikachu.webp" alt="Pikachu" />
+                            <span class="tag-type type-electric">Elétrico</span>
+                        </div>
+                        <h3 class="pokemon-title">Pikachu</h3>
+                        <p class="pokemon-description">
+                            Quando vários destes Pokémon se juntam, sua eletricidade pode causar tempestades.
+                        </p>
+                        <div
+                            class="d-flex align-items-center justify-content-between mt-2 pt-1 border-top border-light border-opacity-10"
+                        >
+                            <span class="small fw-semibold text-muted">Rare</span>
+                            <button
+                                class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle"
+                                style="
+                                    background-color: rgba(122, 143, 117, 0.15);
+                                    width: 28px;
+                                    height: 28px;
+                                    color: #7a8f75;
+                                "
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-plus"
+                                >
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pokemon-card"
+                        data-bs-toggle="modal"
+                        data-bs-target="#pokemonDetailsModal"
+                        data-name="Charizard"
+                        data-type="fire"
+                        data-rarity="Rare Holo"
+                        data-desc="Cospe fogo tão quente que pode derreter pedregulhos. Pode causar incêndios florestais com seu hálito."
+                        data-img="src/assets/img/charizard.webp"
+                    >
+                        <div class="favorite-star">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-muted"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="image-container">
+                            <img src="src/assets/img/charizard.webp" alt="Charizard" />
+                            <span class="tag-type type-fire">Fogo</span>
+                        </div>
+                        <h3 class="pokemon-title">Charizard</h3>
+                        <p class="pokemon-description">
+                            Cospe fogo tão quente que pode derreter pedregulhos. Pode causar incêndios florestais com
+                            seu hálito.
+                        </p>
+                        <div
+                            class="d-flex align-items-center justify-content-between mt-2 pt-1 border-top border-light border-opacity-10"
+                        >
+                            <span class="small fw-semibold text-muted">Rare Holo</span>
+                            <button
+                                class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle"
+                                style="background-color: #7a8f75; width: 28px; height: 28px; color: white"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="14"
+                                    height="14"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-check"
+                                >
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pokemon-card"
+                        data-bs-toggle="modal"
+                        data-bs-target="#pokemonDetailsModal"
+                        data-name="Blastoise"
+                        data-type="water"
+                        data-rarity="Rare Holo"
+                        data-desc="Um Pokémon brutal com canhões de água pressurizados em suas costas."
+                        data-img="src/assets/img/blastoise.webp"
+                    >
+                        <div class="favorite-star starred">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-warning"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="image-container">
+                            <img src="src/assets/img/blastoise.webp" alt="Blastoise" />
+                            <span class="tag-type type-water">Água</span>
+                        </div>
+                        <h3 class="pokemon-title">Blastoise</h3>
+                        <p class="pokemon-description">
+                            Um Pokémon brutal com canhões de água pressurizados em suas costas.
+                        </p>
+                        <div
+                            class="d-flex align-items-center justify-content-between mt-2 pt-1 border-top border-light border-opacity-10"
+                        >
+                            <span class="small fw-semibold text-muted">Rare Holo</span>
+                            <button
+                                class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle"
+                                style="background-color: #7a8f75; width: 28px; height: 28px; color: white"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="14"
+                                    height="14"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-check"
+                                >
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pokemon-card"
+                        data-bs-toggle="modal"
+                        data-bs-target="#pokemonDetailsModal"
+                        data-name="Venusaur"
+                        data-type="grass"
+                        data-rarity="Rare Holo"
+                        data-desc="A planta em suas costas cresce absorvendo a luz solar. Fica maior à medida que Venusaur cresce."
+                        data-img="src/assets/img/venusaur.webp"
+                    >
+                        <div class="favorite-star">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-muted"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="image-container">
+                            <img src="src/assets/img/venusaur.webp" alt="Venusaur" />
+                            <span class="tag-type type-grass">Planta</span>
+                        </div>
+                        <h3 class="pokemon-title">Venusaur</h3>
+                        <p class="pokemon-description">
+                            A planta em suas costas cresce absorvendo a luz solar. Fica maior à medida que Venusaur
+                            cresce.
+                        </p>
+                        <div
+                            class="d-flex align-items-center justify-content-between mt-2 pt-1 border-top border-light border-opacity-10"
+                        >
+                            <span class="small fw-semibold text-muted">Rare Holo</span>
+                            <button
+                                class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle"
+                                style="
+                                    background-color: rgba(122, 143, 117, 0.15);
+                                    width: 28px;
+                                    height: 28px;
+                                    color: #7a8f75;
+                                "
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-plus"
+                                >
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pokemon-card"
+                        data-bs-toggle="modal"
+                        data-bs-target="#pokemonDetailsModal"
+                        data-name="Mewtwo"
+                        data-type="psychic"
+                        data-rarity="Rare Secret"
+                        data-desc="Foi criado por um cientista após anos de experimentos horríveis de engenharia genética."
+                        data-img="src/assets/img/mewtwo.webp"
+                    >
+                        <div class="favorite-star">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-muted"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="image-container">
+                            <img src="src/assets/img/mewtwo.webp" alt="Mewtwo" />
+                            <span class="tag-type type-psychic" style="background-color: #e2e8f0; color: #4a5568"
+                                >Psíquico</span
+                            >
+                        </div>
+                        <h3 class="pokemon-title">Mewtwo</h3>
+                        <p class="pokemon-description">
+                            Foi criado por um cientista após anos de experimentos horríveis de engenharia genética.
+                        </p>
+                        <div
+                            class="d-flex align-items-center justify-content-between mt-2 pt-1 border-top border-light border-opacity-10"
+                        >
+                            <span class="small fw-semibold text-muted">Rare Secret</span>
+                            <button
+                                class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle"
+                                style="
+                                    background-color: rgba(122, 143, 117, 0.15);
+                                    width: 28px;
+                                    height: 28px;
+                                    color: #7a8f75;
+                                "
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-plus"
+                                >
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pokemon-card"
+                        data-bs-toggle="modal"
+                        data-bs-target="#pokemonDetailsModal"
+                        data-name="Dragonite"
+                        data-type="dragon"
+                        data-rarity="Rare Ultra"
+                        data-desc="Um Pokémon marinho extremamente raro. Dizem que é tão inteligente quanto os humanos."
+                        data-img="src/assets/img/dragonite.webp"
+                    >
+                        <div class="favorite-star">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-muted"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="image-container">
+                            <img src="src/assets/img/dragonite.webp" alt="Dragonite" />
+                            <span class="tag-type type-dragon" style="background-color: #edf2f7; color: #2d3748"
+                                >Dragão</span
+                            >
+                        </div>
+                        <h3 class="pokemon-title">Dragonite</h3>
+                        <p class="pokemon-description">
+                            Um Pokémon marinho extremamente raro. Dizem que é tão inteligente quanto os humanos.
+                        </p>
+                        <div
+                            class="d-flex align-items-center justify-content-between mt-2 pt-1 border-top border-light border-opacity-10"
+                        >
+                            <span class="small fw-semibold text-muted">Rare Ultra</span>
+                            <button
+                                class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle"
+                                style="
+                                    background-color: rgba(122, 143, 117, 0.15);
+                                    width: 28px;
+                                    height: 28px;
+                                    color: #7a8f75;
+                                "
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-plus"
+                                >
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pokemon-card"
+                        data-bs-toggle="modal"
+                        data-bs-target="#pokemonDetailsModal"
+                        data-name="Eevee"
+                        data-type="normal"
+                        data-rarity="Common"
+                        data-desc="Seu código genético é irregular. Pode sofrer mutações se exposto à radiação de pedras."
+                        data-img="src/assets/img/eevee.webp"
+                    >
+                        <div class="favorite-star">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-muted"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="image-container">
+                            <img src="src/assets/img/eevee.webp" alt="Eevee" />
+                            <span class="tag-type type-normal" style="background-color: #edf2f7; color: #4a5568"
+                                >Normal</span
+                            >
+                        </div>
+                        <h3 class="pokemon-title">Eevee</h3>
+                        <p class="pokemon-description">
+                            Seu código genético é irregular. Pode sofrer mutações se exposto à radiação de pedras.
+                        </p>
+                        <div
+                            class="d-flex align-items-center justify-content-between mt-2 pt-1 border-top border-light border-opacity-10"
+                        >
+                            <span class="small fw-semibold text-muted">Common</span>
+                            <button
+                                class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle"
+                                style="
+                                    background-color: rgba(122, 143, 117, 0.15);
+                                    width: 28px;
+                                    height: 28px;
+                                    color: #7a8f75;
+                                "
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-plus"
+                                >
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="pokemon-card"
+                        data-bs-toggle="modal"
+                        data-bs-target="#pokemonDetailsModal"
+                        data-name="Machamp"
+                        data-type="fighting"
+                        data-rarity="Rare Holo"
+                        data-desc="Usando seus braços musculosos, pode arremessar até um trem. Seus músculos nunca ficam doloridos."
+                        data-img="src/assets/img/machamp.webp"
+                    >
+                        <div class="favorite-star">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-muted"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        </div>
+                        <div class="image-container">
+                            <img src="src/assets/img/machamp.webp" alt="Machamp" />
+                            <span class="tag-type type-fighting">Lutador</span>
+                        </div>
+                        <h3 class="pokemon-title">Machamp</h3>
+                        <p class="pokemon-description">
+                            Usando seus braços musculosos, pode arremessar até um trem. Seus músculos nunca ficam
+                            doloridos.
+                        </p>
+                        <div
+                            class="d-flex align-items-center justify-content-between mt-2 pt-1 border-top border-light border-opacity-10"
+                        >
+                            <span class="small fw-semibold text-muted">Rare Holo</span>
+                            <button
+                                class="btn btn-sm d-flex align-items-center justify-content-center rounded-circle"
+                                style="background-color: #7a8f75; width: 28px; height: 28px; color: white"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="14"
+                                    height="14"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="feather feather-check"
+                                >
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center align-items-center gap-2 mt-4">
+                    <button
+                        class="btn btn-custom btn-custom-secondary p-0 d-flex align-items-center justify-content-center rounded-circle"
+                        style="width: 38px; height: 38px"
+                        disabled
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-chevron-left"
+                        >
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <a
+                        href="#"
+                        class="btn btn-custom btn-custom-secondary p-0 d-flex align-items-center justify-content-center rounded-circle border fw-bold small"
+                        style="width: 38px; height: 38px; background-color: white"
+                        >1</a
+                    >
+                    <a
+                        href="#"
+                        class="btn btn-custom btn-custom-primary p-0 d-flex align-items-center justify-content-center rounded-circle fw-bold small"
+                        style="width: 38px; height: 38px"
+                        >2</a
+                    >
+                    <button
+                        class="btn btn-custom btn-custom-secondary p-0 d-flex align-items-center justify-content-center rounded-circle"
+                        style="width: 38px; height: 38px"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-chevron-right"
+                        >
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <div
+            class="modal fade modal-custom-green"
+            id="pokemonDetailsModal"
+            tabindex="-1"
+            aria-labelledby="pokemonDetailsModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header-custom">
+                        <h3 class="modal-title-custom" id="modal-pokemon-name">Pikachu</h3>
+                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Fechar">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="modal-body p-4">
+                        <div class="row g-4">
+                            <div class="col-12 col-md-5">
+                                <div class="modal-card-preview-container">
+                                    <img id="modal-pokemon-img" src="" alt="Carta do Pokémon" />
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-7 modal-scrollable-col">
+                                <div class="detail-section-card">
+                                    <h4>Informações Básicas</h4>
+                                    <div class="stat-row">
+                                        <span class="label">HP</span>
+                                        <span class="value" id="modal-pokemon-hp">60</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="label">Tipo</span>
+                                        <span class="value" id="modal-pokemon-type">Lightning</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="label">Raridade</span>
+                                        <span class="value" id="modal-pokemon-rarity">Rare</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="label">Número</span>
+                                        <span class="value" id="modal-pokemon-number">#025</span>
+                                    </div>
+                                </div>
+
+                                <div class="detail-section-card">
+                                    <h4>Ataques</h4>
+                                    <div id="modal-pokemon-attacks"></div>
+                                </div>
+
+                                <div class="detail-section-card">
+                                    <h4>Fraquezas & Resistências</h4>
+                                    <div class="stat-row">
+                                        <span class="label">Fraquezas</span>
+                                        <span class="value text-danger" id="modal-pokemon-weakness">Fighting ×2</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="label">Resistências</span>
+                                        <span class="value text-success" id="modal-pokemon-resistance">Nenhuma</span>
+                                    </div>
+                                </div>
+
+                                <div class="detail-section-card">
+                                    <h4>Informações do Set</h4>
+                                    <div class="stat-row">
+                                        <span class="label">Nome</span>
+                                        <span class="value" id="modal-pokemon-setname">Base Set</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="label">Série</span>
+                                        <span class="value" id="modal-pokemon-setseries">Original</span>
+                                    </div>
+                                </div>
+
+                                <div class="detail-section-card">
+                                    <div class="stat-row m-0">
+                                        <span class="label">Artista</span>
+                                        <span class="value" id="modal-pokemon-artist">Ken Sugimori</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="modal fade modal-custom-green"
+            id="collectionModal"
+            tabindex="-1"
+            aria-labelledby="collectionModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header-custom">
+                        <div>
+                            <h3 class="modal-title-custom" id="collectionModalLabel" style="color: #532626">
+                                Minha Coleção
+                            </h3>
+                            <p class="text-muted small mb-0" id="collection-count-subtitle">0 cartas na sua coleção</p>
+                        </div>
+                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Fechar">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="modal-body p-4">
+                        <div class="modal-cards-grid" id="collection-cards-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="modal fade modal-custom-green"
+            id="favoritesModal"
+            tabindex="-1"
+            aria-labelledby="favoritesModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header-custom">
+                        <div>
+                            <h3 class="modal-title-custom" id="favoritesModalLabel" style="color: #532626">
+                                Cartas Favoritas
+                            </h3>
+                            <p class="text-muted small mb-0" id="favorites-count-subtitle">0 cartas favoritas</p>
+                        </div>
+                        <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Fechar">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="modal-body p-4">
+                        <div class="modal-cards-grid" id="favorites-cards-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="mobile-bottom-tabs d-md-none">
+            <a href="index.html" class="tab-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+                Home
+            </a>
+            <a href="cartas.html" class="tab-link active">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="7" height="9" rx="1" />
+                    <rect x="14" y="3" width="7" height="5" rx="1" />
+                    <rect x="14" y="12" width="7" height="9" rx="1" />
+                    <rect x="3" y="16" width="7" height="5" rx="1" />
+                </svg>
+                Cartas
+            </a>
+            <a href="decks.html" class="tab-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                </svg>
+                Decks
+            </a>
+        </nav>
+
+        <script src="src/js/app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const modal = document.getElementById("pokemonDetailsModal");
+                modal.addEventListener("show.bs.modal", function (event) {
+                    const button = event.relatedTarget;
+                    const name = button.getAttribute("data-name");
+                    const img = button.getAttribute("data-img");
+
+                    const details = CARD_DETAILS[name] || {
+                        hp: 60,
+                        type: "normal",
+                        typeName: "Normal",
+                        rarity: "Common",
+                        number: "#000",
+                        attacks: [],
+                        weakness: "Nenhuma",
+                        resistance: "Nenhuma",
+                        setName: "Desconhecido",
+                        setSeries: "Nenhuma",
+                        artist: "Desconhecido"
+                    };
+
+                    document.getElementById("modal-pokemon-name").innerText = name;
+
+                    const imgElement = document.getElementById("modal-pokemon-img");
+                    imgElement.src = img;
+                    imgElement.alt = name;
+
+                    document.getElementById("modal-pokemon-hp").innerText = details.hp;
+                    document.getElementById("modal-pokemon-type").innerText = details.typeName;
+                    document.getElementById("modal-pokemon-rarity").innerText = details.rarity;
+                    document.getElementById("modal-pokemon-number").innerText = details.number;
+
+                    const attacksContainer = document.getElementById("modal-pokemon-attacks");
+                    attacksContainer.innerHTML = "";
+                    if (details.attacks && details.attacks.length > 0) {
+                        details.attacks.forEach((attack) => {
+                            const attackItem = document.createElement("div");
+                            attackItem.className = "detail-attack-item mb-3";
+                            attackItem.innerHTML = `
+                                <div class="attack-info-left">
+                                    <div class="attack-name">${attack.name}</div>
+                                    <div class="attack-desc">${attack.desc}</div>
+                                </div>
+                                <div class="attack-damage">${attack.damage}</div>
+                            `;
+                            attacksContainer.appendChild(attackItem);
+                        });
+                    } else {
+                        attacksContainer.innerHTML = `<p class="text-muted small mb-0">Nenhum ataque cadastrado.</p>`;
+                    }
+
+                    document.getElementById("modal-pokemon-weakness").innerText = details.weakness || "Nenhuma";
+                    document.getElementById("modal-pokemon-resistance").innerText = details.resistance || "Nenhuma";
+                    document.getElementById("modal-pokemon-setname").innerText = details.setName;
+                    document.getElementById("modal-pokemon-setseries").innerText = details.setSeries;
+                    document.getElementById("modal-pokemon-artist").innerText = details.artist;
+                });
+
+                const collectionModal = document.getElementById("collectionModal");
+                collectionModal.addEventListener("show.bs.modal", function () {
+                    renderCollectionModal();
+                });
+
+                function renderCollectionModal() {
+                    const collection = getCollection();
+                    const subtitle = document.getElementById("collection-count-subtitle");
+                    subtitle.innerText = `${collection.length} ${collection.length === 1 ? "carta" : "cartas"} na sua coleção`;
+
+                    const grid = document.getElementById("collection-cards-grid");
+                    grid.innerHTML = "";
+
+                    if (collection.length === 0) {
+                        grid.innerHTML = `<div class="text-center py-5 w-100 text-muted">Sua coleção está vazia. Adicione cartas clicando no botão "+" na tela principal!</div>`;
+                        return;
+                    }
+
+                    collection.forEach((cardName) => {
+                        const mainCard = document.querySelector(`.pokemon-card[data-name="${cardName}"]`);
+                        if (!mainCard) return;
+
+                        const img = mainCard.getAttribute("data-img");
+                        const type = mainCard.getAttribute("data-type");
+                        const rarity = mainCard.getAttribute("data-rarity");
+                        const typeLabel = mainCard.querySelector(".tag-type")
+                            ? mainCard.querySelector(".tag-type").innerText
+                            : "Normal";
+
+                        const cardCol = document.createElement("div");
+                        cardCol.className = "mini-pokemon-card";
+                        cardCol.innerHTML = `
+                            <div class="mini-image-container">
+                                <img src="${img}" alt="${cardName}">
+                                <span class="mini-tag-type type-${type}">${typeLabel}</span>
+                            </div>
+                            <h4 class="mini-pokemon-title">${cardName}</h4>
+                            <p class="mini-pokemon-rarity">${rarity}</p>
+                            <div class="mini-action-btn-container">
+                                <button class="btn-mini-action btn-remove" title="Remover da Coleção">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        `;
+
+                        cardCol.querySelector(".btn-remove").addEventListener("click", function () {
+                            toggleCardOwnership(cardName);
+                            const matchingMainCard = document.querySelector(`.pokemon-card[data-name="${cardName}"]`);
+                            if (matchingMainCard) {
+                                updateCardUI(matchingMainCard, false);
+                            }
+                            renderCollectionModal();
+                        });
+
+                        grid.appendChild(cardCol);
+                    });
+                }
+
+                const favoritesModal = document.getElementById("favoritesModal");
+                favoritesModal.addEventListener("show.bs.modal", function () {
+                    renderFavoritesModal();
+                });
+
+                function renderFavoritesModal() {
+                    const favorites = getFavorites();
+                    const subtitle = document.getElementById("favorites-count-subtitle");
+                    subtitle.innerText = `${favorites.length} ${favorites.length === 1 ? "carta" : "cartas"} favoritas`;
+
+                    const grid = document.getElementById("favorites-cards-grid");
+                    grid.innerHTML = "";
+
+                    if (favorites.length === 0) {
+                        grid.innerHTML = `<div class="text-center py-5 w-100 text-muted">Você não favoritou nenhuma carta ainda!</div>`;
+                        return;
+                    }
+
+                    favorites.forEach((cardName) => {
+                        const mainCard = document.querySelector(`.pokemon-card[data-name="${cardName}"]`);
+                        if (!mainCard) return;
+
+                        const img = mainCard.getAttribute("data-img");
+                        const type = mainCard.getAttribute("data-type");
+                        const rarity = mainCard.getAttribute("data-rarity");
+                        const typeLabel = mainCard.querySelector(".tag-type")
+                            ? mainCard.querySelector(".tag-type").innerText
+                            : "Normal";
+
+                        const cardCol = document.createElement("div");
+                        cardCol.className = "mini-pokemon-card";
+                        cardCol.innerHTML = `
+                            <div class="mini-image-container">
+                                <img src="${img}" alt="${cardName}">
+                                <span class="mini-tag-type type-${type}">${typeLabel}</span>
+                            </div>
+                            <h4 class="mini-pokemon-title">${cardName}</h4>
+                            <p class="mini-pokemon-rarity">${rarity}</p>
+                            <div class="mini-action-btn-container">
+                                <button class="btn-mini-action btn-fav" title="Remover dos Favoritos">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                </button>
+                            </div>
+                        `;
+
+                        cardCol.querySelector(".btn-fav").addEventListener("click", function () {
+                            toggleCardFavorite(cardName);
+                            const matchingMainCard = document.querySelector(`.pokemon-card[data-name="${cardName}"]`);
+                            if (matchingMainCard) {
+                                const isFav = isCardFavorited(cardName);
+                                updateFavoriteStarUI(matchingMainCard, isFav);
+                            }
+                            renderFavoritesModal();
+                        });
+
+                        grid.appendChild(cardCol);
+                    });
+                }
+
+                function updateCardUI(card, owned) {
+                    const btn = card.querySelector("button");
+                    if (!btn) return;
+
+                    if (owned) {
+                        btn.style.backgroundColor = "#7a8f75";
+                        btn.style.color = "white";
+                        btn.innerHTML = `
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="feather feather-check"
+                            >
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        `;
+                    } else {
+                        btn.style.backgroundColor = "rgba(122, 143, 117, 0.15)";
+                        btn.style.color = "#7a8f75";
+                        btn.innerHTML = `
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="feather feather-plus"
+                            >
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        `;
+                    }
+                }
+
+                function updateFavoriteStarUI(card, isFav) {
+                    const starDiv = card.querySelector(".favorite-star");
+                    if (!starDiv) return;
+
+                    if (isFav) {
+                        starDiv.classList.add("starred");
+                        starDiv.innerHTML = `
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-warning"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        `;
+                    } else {
+                        starDiv.classList.remove("starred");
+                        starDiv.innerHTML = `
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-muted"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                        `;
+                    }
+                }
+
+                const cards = document.querySelectorAll(".pokemon-card");
+
+                cards.forEach((card) => {
+                    const name = card.getAttribute("data-name");
+
+                    const owned = isCardOwned(name);
+                    updateCardUI(card, owned);
+
+                    const favorited = isCardFavorited(name);
+                    updateFavoriteStarUI(card, favorited);
+
+                    card.removeAttribute("data-bs-toggle");
+                    card.removeAttribute("data-bs-target");
+
+                    card.addEventListener("click", function (e) {
+                        if (
+                            e.target.closest(".favorite-star") ||
+                            e.target.closest("button") ||
+                            e.target.closest(".btn-mini-action")
+                        ) {
+                            return;
+                        }
+                        const detailsModal = new bootstrap.Modal(document.getElementById("pokemonDetailsModal"));
+                        detailsModal.show(card);
+                    });
+
+                    const btn = card.querySelector("button");
+                    if (btn) {
+                        btn.addEventListener("click", function (e) {
+                            e.stopPropagation();
+                            const newOwned = toggleCardOwnership(name);
+                            updateCardUI(card, newOwned);
+                        });
+                    }
+
+                    const star = card.querySelector(".favorite-star");
+                    if (star) {
+                        star.addEventListener("click", function (e) {
+                            e.stopPropagation();
+                            const newFav = toggleCardFavorite(name);
+                            updateFavoriteStarUI(card, newFav);
+                        });
+                    }
+                });
+
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get("filter") === "colecao") {
+                    const colModal = new bootstrap.Modal(document.getElementById("collectionModal"));
+                    colModal.show();
+                }
+            });
+        </script>
+    </body>
+</html>
