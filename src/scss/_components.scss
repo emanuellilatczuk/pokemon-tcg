@@ -1,0 +1,454 @@
+.capsule-navbar {
+    background-color: rgba($success, 0.2);
+    border-radius: $border-radius-pill;
+    padding: 0.35rem 0.5rem;
+    display: inline-flex;
+    gap: 0.25rem;
+    border: 1px solid rgba($success, 0.1);
+
+    .nav-link {
+        color: $pokedeck-text-dark;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem !important;
+        border-radius: $border-radius-pill;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 0.95rem;
+
+        &:hover {
+            color: darken($pokedeck-text-dark, 15%);
+            background-color: rgba($success, 0.1);
+        }
+
+        &.active {
+            background-color: $success !important;
+            color: $pokedeck-white !important;
+            box-shadow: 0 4px 12px rgba($success, 0.2);
+        }
+    }
+}
+
+.mobile-bottom-tabs {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    background-color: $pokedeck-white;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1030;
+    border-top: 1px solid rgba($pokedeck-green-bg, 0.3);
+    padding-bottom: env(safe-area-inset-bottom);
+
+    .tab-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: lighten($pokedeck-text-dark, 20%);
+        font-size: 0.75rem;
+        font-weight: 600;
+        transition:
+            color 0.2s ease,
+            transform 0.2s ease;
+        background: none;
+        border: none;
+        padding: 0.5rem 1rem;
+
+        svg {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 3px;
+            stroke: lighten($pokedeck-text-dark, 20%);
+            stroke-width: 2;
+            fill: none;
+            transition:
+                stroke 0.2s ease,
+                fill 0.2s ease;
+        }
+
+        &.active {
+            color: $success;
+
+            svg {
+                stroke: $success;
+                fill: rgba($success, 0.15);
+            }
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}
+
+.pokemon-card {
+    background-color: $pokedeck-white;
+    border-radius: $border-radius-lg;
+    padding: 1rem;
+    border: 1px solid rgba($pokedeck-green-bg, 0.2);
+    @include soft-shadow;
+    @include holo-effect;
+
+    .image-container {
+        background-color: rgba($pokedeck-green-bg, 0.1);
+        border-radius: 1rem;
+        padding: 0.5rem;
+        aspect-ratio: 2/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border: 1px dashed rgba($pokedeck-green-bg, 0.4);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .pokemon-title {
+        font-family: "Outfit", sans-serif;
+        color: $pokedeck-text-dark;
+        font-weight: 700;
+        margin-top: 0.75rem;
+        margin-bottom: 0.25rem;
+        font-size: 1.1rem;
+    }
+
+    .pokemon-description {
+        font-size: 0.8rem;
+        color: #718096;
+        line-height: 1.4;
+        height: 3.2em;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-bottom: 0.75rem;
+    }
+
+    .tag-type {
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 0.2rem 0.6rem;
+        border-radius: $border-radius-pill;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        &.type-electric {
+            background-color: #fefcbf;
+            color: #b7791f;
+        }
+        &.type-fire {
+            background-color: #fed7d7;
+            color: #c53030;
+        }
+        &.type-water {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+        }
+        &.type-grass {
+            background-color: #c6f6d5;
+            color: #22543d;
+        }
+        &.type-psychic {
+            background-color: #ebf4ff;
+            color: #4a5568;
+        }
+        &.type-dragon {
+            background-color: #edf2f7;
+            color: #2d3748;
+        }
+        &.type-normal {
+            background-color: #edf2f7;
+            color: #4a5568;
+        }
+        &.type-fighting {
+            background-color: #feebc8;
+            color: #9c4221;
+        }
+    }
+
+    .favorite-star {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        font-size: 1.2rem;
+        color: #cbd5e0;
+        transition:
+            color 0.2s ease,
+            transform 0.2s ease;
+        cursor: pointer;
+        background: white;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &.starred {
+            color: #ed8936;
+        }
+    }
+
+    &:hover {
+        .image-container img {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.pokeball-canvas {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 8px solid $pokedeck-text-dark;
+    background: linear-gradient(to bottom, #c53030 50%, #ffffff 50%);
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: 8px;
+        width: 100%;
+        background-color: $pokedeck-text-dark;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        background-color: #ffffff;
+        border: 8px solid $pokedeck-text-dark;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .pokeball-button {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #ffffff;
+        border: 2px solid rgba($pokedeck-text-dark, 0.3);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: $pokedeck-btn-brown;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+    }
+
+    &:hover {
+        transform: rotate(360deg) scale(1.05);
+    }
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.starter-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+
+    &:hover {
+        animation: bounce-jump 0.6s ease infinite alternate;
+        filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.12));
+    }
+}
+
+@keyframes bounce-jump {
+    0% {
+        transform: translateY(0) scaleX(1);
+    }
+    30% {
+        transform: translateY(-2px) scaleX(1.05);
+    }
+    100% {
+        transform: translateY(-16px) scale(0.95);
+    }
+}
+
+.custom-card {
+    background-color: $pokedeck-white;
+    border-radius: $border-radius-lg;
+    border: 1px solid rgba($pokedeck-green-bg, 0.2);
+    padding: 1.5rem;
+    @include soft-shadow;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.form-control-custom {
+    border-radius: $border-radius-pill;
+    background-color: #f4f7f3;
+    border: 1px solid transparent;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    color: $pokedeck-text-dark;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+        color: #a0aec0;
+    }
+
+    &:focus {
+        background-color: $pokedeck-white;
+        border-color: rgba($success, 0.4);
+        box-shadow: 0 0 0 0.25rem rgba($success, 0.15);
+        outline: 0;
+    }
+}
+
+.btn-custom {
+    border-radius: $border-radius-pill;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    font-family: "Outfit", sans-serif;
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+
+    &.btn-custom-primary {
+        background-color: $pokedeck-btn-brown;
+        color: $pokedeck-white;
+        &:hover {
+            background-color: darken($pokedeck-btn-brown, 6%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba($pokedeck-btn-brown, 0.3);
+        }
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    &.btn-custom-secondary {
+        background-color: $pokedeck-gray-light;
+        color: lighten($pokedeck-text-dark, 10%);
+        &:hover {
+            background-color: darken($pokedeck-gray-light, 5%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    &.btn-custom-info {
+        background-color: $pokedeck-btn-blue;
+        color: $pokedeck-white;
+        &:hover {
+            background-color: darken($pokedeck-btn-blue, 6%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba($pokedeck-btn-blue, 0.3);
+        }
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}
+
+.add-deck-card {
+    border: 2px dashed rgba($success, 0.4);
+    border-radius: $border-radius-lg;
+    background-color: rgba($success, 0.04);
+    aspect-ratio: 16/10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 1.5rem;
+
+    .add-icon-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba($success, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $success;
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        transition: all 0.3s ease;
+    }
+
+    span {
+        font-weight: 600;
+        color: $success;
+        font-size: 0.95rem;
+    }
+
+    &:hover {
+        background-color: rgba($success, 0.08);
+        border-color: $success;
+        transform: translateY(-3px);
+
+        .add-icon-circle {
+            background-color: $success;
+            color: $pokedeck-white;
+            transform: scale(1.1);
+        }
+    }
+}
