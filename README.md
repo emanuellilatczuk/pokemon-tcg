@@ -17,7 +17,7 @@ Para entender as regras de negócio, o escopo e a arquitetura técnica da aplica
 
 ## 🌐 Site em Produção - GitHub Pages
 
-* Em andamento
+* https://emanuellilatczuk.github.io/pokemon-tcg/login.html
 
 ## 💻 Tecnologias e Dependências
 
